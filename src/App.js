@@ -1,25 +1,48 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ReactLenis } from "@studio-freight/react-lenis";
+import SceneManager from "./components/SceneManager";
+import Hero from "./components/Hero";
+import InfoSection from "./components/InfoSection";
+import Overview from "./components/Overview";
+import FinalSection from "./components/FinalSection";
 
-function App() {
+const App = () => {
+
+
+  useEffect(() => {
+    ScrollTrigger.create({
+      trigger: ".DetailsSection",
+      start: "top center",
+      end: "bottom bottom",
+
+      onEnter: () =>
+        gsap.to("body", { backgroundColor: "#F2F2F2", duration: 0.5 }),
+      onLeave: () =>
+        gsap.to("body", { backgroundColor: "#080808", duration: 0.5 }),
+      onLeaveBack: () =>
+        gsap.to("body", { backgroundColor: "#080808", duration: 0.5 }),
+      onEnterBack: () =>
+        gsap.to("body", { backgroundColor: "#F2F2F2", duration: 0.5 }),
+    });
+    return () => {
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ReactLenis root>
+      <div className='App'>
+        <SceneManager>
+          <Hero />
+          <InfoSection />
+          <Overview />
+          <FinalSection />
+        </SceneManager>
+      </div>
+    </ReactLenis>
   );
-}
+};
 
 export default App;
