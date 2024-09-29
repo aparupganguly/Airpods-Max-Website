@@ -7,6 +7,20 @@ body::-webkit-scrollbar {
   display: none;
 }
 
+/* fonts */
+@font-face {
+  font-family: "ngp-55";
+  src: url("./fonts/NeueHaasDisplayRoman.ttf") format("opentype");
+}
+@font-face {
+  font-family: "ngp-65";
+  src: url("./fonts/NeueHaasDisplayMediu.ttf") format("opentype");
+}
+@font-face {
+  font-family: "ngp-75";
+  src: url("./fonts/NeueHaasDisplayBold.ttf") format("opentype");
+}
+
 /* scrollbar */
 
 /* lists */
@@ -72,7 +86,7 @@ body::-webkit-scrollbar {
 
 .App {
   padding-left: 1em;
-  font-family: "Helvetica Now Display";
+  font-family: "ngp-65";
 }
 .price {
   font-size: 3em;
@@ -81,4 +95,13 @@ body::-webkit-scrollbar {
 .subPrice {
   font-size: 2em;
   color: grey;
+}
+
+.navbarContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  gap: 2em;
+  font-family: "ngp-55";
+  padding-right: 2em;
 }

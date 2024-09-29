@@ -7,6 +7,7 @@ import Hero from "./components/Hero";
 import InfoSection from "./components/InfoSection";
 import Overview from "./components/Overview";
 import FinalSection from "./components/FinalSection";
+import Navbar from "./components/Navbar";
 
 const App = () => {
 
@@ -35,6 +36,7 @@ const App = () => {
     <ReactLenis root>
       <div className='App'>
         <SceneManager>
+          <Navbar />
           <Hero />
           <InfoSection />
           <Overview />
